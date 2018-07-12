@@ -1,0 +1,60 @@
+2018-06-05 17:54:07,367 [INFO ] com.yjz.seal.ibank.esehander.AbstractEsbHandler  - resourceAsStream java.io.BufferedInputStream@1c511cb
+2018-06-05 17:54:07,377 [INFO ] com.yjz.seal.ibank.esehander.AbstractEsbHandler  - ESBService 6
+2018-06-05 17:54:07,377 [INFO ] com.yjz.seal.ibank.esehander.AbstractEsbHandler  - class com.yjz.seal.ibank.esehander.AbstractEsbHandler 6
+2018-06-05 17:54:12,175 [INFO ] com.yjz.seal.ibank.esehander.EsbServiceImp  - 参与校验的类是 class com.yzj.seal.ibank.service.concreteService.AcconutConcreateValid
+2018-06-05 17:54:14,243 [INFO ] com.yjz.seal.ibank.esehander.AbstractEsbSendMethod  - 报文模板    
+					
+						<?xml version="1.0" encoding="UTF-8"?>
+						<service>
+						<SYS_HEAD>
+						<ServiceCode>{0}</ServiceCode>
+						<ServiceScene>{1}</ServiceScene>
+						<ConsumerId>{2}</ConsumerId>
+						<OrgConsumerId>{3}</OrgConsumerId>
+						<ConsumerSeqNo>{4}</ConsumerSeqNo>
+						<OrgConsumerSeqNo>{5}</OrgConsumerSeqNo>
+						<TranDate>{6}</TranDate>
+						<TranTime>{7}</TranTime>
+						</SYS_HEAD>
+						<APP_HEAD></APP_HEAD>
+							<BODY>
+							    <SysCd>{8}</SysCd>
+							    <TfrIntfCtfPwd>{9}</TfrIntfCtfPwd>
+								<StrtTm>{10}</StrtTm>
+								<EndTm>{11}</EndTm>
+								<AcsCstTmlIp>{12}</AcsCstTmlIp>
+							</BODY>
+						</service>	
+					
+			
+2018-06-05 17:54:14,245 [INFO ] com.yjz.seal.ibank.esehander.AbstractEsbSendMethod  - 格式化 后的报文  00000761<?xml version="1.0" encoding="UTF-8"?>
+						<service>
+						<SYS_HEAD>
+						<ServiceCode>12003000035</ServiceCode>
+						<ServiceScene>03</ServiceScene>
+						<ConsumerId>105004</ConsumerId>
+						<OrgConsumerId>105004</OrgConsumerId>
+						<ConsumerSeqNo>10500420180605SI0000000002</ConsumerSeqNo>
+						<OrgConsumerSeqNo>10500420180605SI0000000002</OrgConsumerSeqNo>
+						<TranDate>20180605</TranDate>
+						<TranTime>105020</TranTime>
+						</SYS_HEAD>
+						<APP_HEAD></APP_HEAD>
+							<BODY>
+							    <SysCd>SISBASE</SysCd>
+							    <TfrIntfCtfPwd>SISBASE</TfrIntfCtfPwd>
+								<StrtTm>2018-06-05 09:00:46.000</StrtTm>
+								<EndTm>2018-06-05 10:05:46.000</EndTm>
+								<AcsCstTmlIp>128.160.15.14</AcsCstTmlIp>
+							</BODY>
+						</service>
+2018-06-05 17:54:21,520 [ERROR] com.yjz.seal.ibank.esehander.EsbServiceImp  - 目标系统 ESB对象的报文发送类com.yzj.seal.ibank.common.destination.SendToESBSendHandler
+2018-06-05 17:54:22,087 [INFO ] com.yjz.seal.ibank.esehander.EsbServiceImp  - 目标发送类 class com.yzj.seal.ibank.common.destination.SendToESBSendHandler
+2018-06-05 17:54:22,526 [INFO ] com.yzj.seal.ibank.common.destination.SendToESBSendHandler  - host 128.160.22.6
+2018-06-05 17:54:22,526 [INFO ] com.yzj.seal.ibank.common.destination.SendToESBSendHandler  - port 9136
+2018-06-05 17:54:22,680 [INFO ] com.yzj.seal.ibank.common.destination.SendToESBSendHandler  - buffer.toString() 00001844<?xml version="1.0" encoding="UTF-8"?><service><SYS_HEAD><ServiceCode>12003000035</ServiceCode><ServiceScene>03</ServiceScene><ConsumerId>105004</ConsumerId><OrgConsumerId>105004</OrgConsumerId><ConsumerSeqNo>10500420180605SI0000000002</ConsumerSeqNo><OrgConsumerSeqNo>10500420180605SI0000000002</OrgConsumerSeqNo><ServSeqNo>11000720180605UM991756282339</ServSeqNo><TranDate>20180605</TranDate><TranTime>175628</TranTime><ReturnStatus>S</ReturnStatus><array><Ret><ReturnCode>000000</ReturnCode><ReturnMsg>Successed</ReturnMsg></Ret></array></SYS_HEAD><APP_HEAD><array></array><array></array></APP_HEAD><BODY><AcctNoInf>[{&quot;bimUserId&quot;:&quot;00000030&quot;,&quot;password&quot;:&quot;pnpikdglbfodblikkmcfkedmjfcagmjoomjlnjfhckbeppeo&quot;,&quot;username&quot;:&quot;00000030&quot;,&quot;fullname&quot;:&quot;&#21592;&#24037;*&quot;,&quot;isDisabled&quot;:false,&quot;isDeleted&quot;:false,&quot;isLocked&quot;:false,&quot;isVirtual&quot;:false,&quot;updateAt&quot;:&quot;2018-06-05 09:01:43.376&quot;},{&quot;bimUserId&quot;:&quot;00000027&quot;,&quot;password&quot;:&quot;bjpjalbnpcfciadngplnnbenalcjpbmi&quot;,&quot;username&quot;:&quot;00000027&quot;,&quot;fullname&quot;:&quot;&#21592;&#24037;*&quot;,&quot;isDisabled&quot;:false,&quot;isDeleted&quot;:false,&quot;isLocked&quot;:false,&quot;isVirtual&quot;:false,&quot;updateAt&quot;:&quot;2018-06-05 09:06:22.374&quot;},{&quot;bimUserId&quot;:&quot;00000031&quot;,&quot;password&quot;:&quot;bjpjalbnpcfciadngplnnbenalcjpbmi&quot;,&quot;username&quot;:&quot;00000031&quot;,&quot;fullname&quot;:&quot;&#21592;&#24037;*&quot;,&quot;isDisabled&quot;:false,&quot;isDeleted&quot;:false,&quot;isLocked&quot;:false,&quot;isVirtual&quot;:false,&quot;updateAt&quot;:&quot;2018-06-05 09:06:37.374&quot;}]</AcctNoInf><NxtIntfTfrStrtTm>2018-06-05 09:06:37.374</NxtIntfTfrStrtTm></BODY></service>
+2018-06-05 17:54:22,735 [INFO ] com.yjz.seal.ibank.esehander.EsbServiceImp  - 真实响应的报文呢:00001844<?xml version="1.0" encoding="UTF-8"?><service><SYS_HEAD><ServiceCode>12003000035</ServiceCode><ServiceScene>03</ServiceScene><ConsumerId>105004</ConsumerId><OrgConsumerId>105004</OrgConsumerId><ConsumerSeqNo>10500420180605SI0000000002</ConsumerSeqNo><OrgConsumerSeqNo>10500420180605SI0000000002</OrgConsumerSeqNo><ServSeqNo>11000720180605UM991756282339</ServSeqNo><TranDate>20180605</TranDate><TranTime>175628</TranTime><ReturnStatus>S</ReturnStatus><array><Ret><ReturnCode>000000</ReturnCode><ReturnMsg>Successed</ReturnMsg></Ret></array></SYS_HEAD><APP_HEAD><array></array><array></array></APP_HEAD><BODY><AcctNoInf>[{&quot;bimUserId&quot;:&quot;00000030&quot;,&quot;password&quot;:&quot;pnpikdglbfodblikkmcfkedmjfcagmjoomjlnjfhckbeppeo&quot;,&quot;username&quot;:&quot;00000030&quot;,&quot;fullname&quot;:&quot;&#21592;&#24037;*&quot;,&quot;isDisabled&quot;:false,&quot;isDeleted&quot;:false,&quot;isLocked&quot;:false,&quot;isVirtual&quot;:false,&quot;updateAt&quot;:&quot;2018-06-05 09:01:43.376&quot;},{&quot;bimUserId&quot;:&quot;00000027&quot;,&quot;password&quot;:&quot;bjpjalbnpcfciadngplnnbenalcjpbmi&quot;,&quot;username&quot;:&quot;00000027&quot;,&quot;fullname&quot;:&quot;&#21592;&#24037;*&quot;,&quot;isDisabled&quot;:false,&quot;isDeleted&quot;:false,&quot;isLocked&quot;:false,&quot;isVirtual&quot;:false,&quot;updateAt&quot;:&quot;2018-06-05 09:06:22.374&quot;},{&quot;bimUserId&quot;:&quot;00000031&quot;,&quot;password&quot;:&quot;bjpjalbnpcfciadngplnnbenalcjpbmi&quot;,&quot;username&quot;:&quot;00000031&quot;,&quot;fullname&quot;:&quot;&#21592;&#24037;*&quot;,&quot;isDisabled&quot;:false,&quot;isDeleted&quot;:false,&quot;isLocked&quot;:false,&quot;isVirtual&quot;:false,&quot;updateAt&quot;:&quot;2018-06-05 09:06:37.374&quot;}]</AcctNoInf><NxtIntfTfrStrtTm>2018-06-05 09:06:37.374</NxtIntfTfrStrtTm></BODY></service>
+2018-06-05 17:54:25,608 [INFO ] com.yjz.seal.ibank.esehander.EsbServiceImp  - msgType=xml methodName=parResMsg
+2018-06-05 17:54:29,758 [INFO ] com.yjz.seal.ibank.resPaser.XmlResMsgPaser  - 报文解析方法 开始解析:parResMsg
+2018-06-05 17:54:59,982 [INFO ] com.yjz.seal.ibank.esehander.EsbServiceImp  - 解析好的报文:2
+2018-06-05 17:54:59,982 [INFO ] com.yjz.seal.ibank.quartJob.ESBExmple  - {NxtIntfTfrStrtTm=2018-06-05 09:06:37.374, AcctNoInf=[{"bimUserId":"00000030","password":"pnpikdglbfodblikkmcfkedmjfcagmjoomjlnjfhckbeppeo","username":"00000030","fullname":"员工*","isDisabled":false,"isDeleted":false,"isLocked":false,"isVirtual":false,"updateAt":"2018-06-05 09:01:43.376"},{"bimUserId":"00000027","password":"bjpjalbnpcfciadngplnnbenalcjpbmi","username":"00000027","fullname":"员工*","isDisabled":false,"isDeleted":false,"isLocked":false,"isVirtual":false,"updateAt":"2018-06-05 09:06:22.374"},{"bimUserId":"00000031","password":"bjpjalbnpcfciadngplnnbenalcjpbmi","username":"00000031","fullname":"员工*","isDisabled":false,"isDeleted":false,"isLocked":false,"isVirtual":false,"updateAt":"2018-06-05 09:06:37.374"}]}
