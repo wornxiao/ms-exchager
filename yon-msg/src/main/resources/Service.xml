@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+	1 在类 Worn_xiaoConstant中维护serviceId destinationSys 
+	2 写自己service对应的validateClass
+	3 整理配置相关报文
+	ESB开发 128.160.22.6
+	ESB集成 128.160.22.6
+	ESBuat128.160.12.214 特殊需求需要，一般不联
+	ESBUAT128.160.12.215 业务验证
+	ESB回归 128.160.12.216 投产前一周验证版本
+	ESB生产F5 10.16.5.26   从开发到投产端口不变	
+-->
+<services>
+	<service 
+	  serviceId="serviceAccount" 
+	  serviceName="获取增量账户信息" 
+	  serviceTitle="获取增量账户信息" 
+	  validClass="com.yzj.seal.ibank.service.concreteService.AcconutConcreateValid"
+	 >
+	<serviceAddress host="128.160.22.6" port="9136">
+				<destinationSys>ESB</destinationSys>	
+	</serviceAddress>
+	    <msgNote>
+	           <!--  sys_head -->
+				<num name="ServiceCode" realkey="0"><value>服务代码1200300003503</value></num>
+				<num name="ServiceScene" realkey="1"><value>服务场景03 </value></num>
+				<num name="ConsumerId" realkey="2"><value>消费系统编号105004</value></num>
+				<num name="OrgConsumerId" realkey="3"><value>发起方系统编号105004</value></num>
+				<num name="ConsumerSeqNo" realkey="4"><value>消费系统流水号10500420180604SI000000000001</value></num>
+				<num name="OrgConsumerSeqNo" realkey="5"><value>发起方系统流水号10500420180604SI000000000001</value></num>
+				<num name="TranDate" realkey="6"><value>交易日期</value></num>
+				<num name="TranTime" realkey="7"><value>交易时间</value></num>
+				<!-- app_head -->
+				<!-- body -->
+				<num name="SysCd" realkey="8"><value>系统代码105004</value></num>
+				<num name="TfrIntfCtfPwd" realkey="9"><value>调用接口认证密码UUMS</value></num>
+				<num name="StrtTm" realkey="10"><value>开始时间(2018-05-02 15:13:46.000)</value></num>
+				<num name="EndTm" realkey="11"><value>结束时间(2018-05-30 15:55:35.123)</value></num>
+				<num name="AcsCstTmlIp" realkey="12"><value>访问者IP(128.160.15.14)</value></num>
+		</msgNote>
+		<resParser msgType="xml" parseMethod="parResMsg" />
+		<msgModel>
+			<modelName>accountModel</modelName>
+			<modelValue>
+					<![CDATA[
+						<?xml version="1.0" encoding="UTF-8"?>
+						<service>
+						<SYS_HEAD>
+						<ServiceCode>{0}</ServiceCode>
+						<ServiceScene>{1}</ServiceScene>
+						<ConsumerId>{2}</ConsumerId>
+						<OrgConsumerId>{3}</OrgConsumerId>
+						<ConsumerSeqNo>{4}</ConsumerSeqNo>
+						<OrgConsumerSeqNo>{5}</OrgConsumerSeqNo>
+						<TranDate>{6}</TranDate>
+						<TranTime>{7}</TranTime>
+						</SYS_HEAD>
+						<APP_HEAD></APP_HEAD>
+							<BODY>
+							    <SysCd>{8}</SysCd>
+							    <TfrIntfCtfPwd>{9}</TfrIntfCtfPwd>
+								<StrtTm>{10}</StrtTm>
+								<EndTm>{11}</EndTm>
+								<AcsCstTmlIp>{12}</AcsCstTmlIp>
+							</BODY>
+						</service>	
+					]]>
+			</modelValue>
+		</msgModel>
+	</service>
+	<service 
+	  serviceId="serviceOrg" 
+	  serviceName="获取增量机构信息" 
+	  serviceTitle="获取增量机构信息" 
+	  validClass="com.yzj.seal.ibank.service.concreteService.OrgConcreateValid"
+	 >
+	<serviceAddress host="128.160.22.6" port="9136">
+				<destinationSys>ESB</destinationSys>
+	</serviceAddress>
+	    <msgNote>
+	           <!--  sys_head -->
+				<num name="ServiceCode" realkey="0"><value>服务代码</value></num>
+				<num name="ServiceScene" realkey="1"><value>服务场景 </value></num>
+				<num name="ConsumerId" realkey="2"><value>消费系统编号</value></num>
+				<num name="OrgConsumerId" realkey="3"><value>发起方系统编号</value></num>
+				<num name="ConsumerSeqNo" realkey="4"><value>消费系统流水号</value></num>
+				<num name="OrgConsumerSeqNo" realkey="5"><value>发起方系统流水号</value></num>
+				<num name="TranDate" realkey="6"><value>交易日期</value></num>
+				<num name="TranTime" realkey="7"><value>交易时间</value></num>
+				<!-- app_head -->
+				<!-- body -->
+				<num name="SysCd" realkey="8"><value>系统代码</value></num>
+				<num name="TfrIntfCtfPwd" realkey="9"><value>调用接口认证密码</value></num>
+				<num name="StrtTm" realkey="10"><value>开始时间(2018-05-02 15:13:46.000)</value></num>
+				<num name="EndTm" realkey="11"><value>结束时间(2018-05-30 15:55:35.123)</value></num>
+				<num name="AcsCstTmlIp" realkey="12"><value>访问者IP(128.160.16.167)</value></num>
+		</msgNote>
+		<resParser msgType="xml" parseMethod="parResMsg" />
+		<msgModel>
+			<modelName>orgModel</modelName>
+			<modelValue>
+					<![CDATA[
+						<?xml version="1.0" encoding="UTF-8"?>
+						<service>
+						<SYS_HEAD>
+						<ServiceCode>{0}</ServiceCode>
+						<ServiceScene>{1}</ServiceScene>
+						<ConsumerId>{2}</ConsumerId>
+						<OrgConsumerId>{3}</OrgConsumerId>
+						<ConsumerSeqNo>{4}</ConsumerSeqNo>
+						<OrgConsumerSeqNo>{5}</OrgConsumerSeqNo>
+						<TranDate>{6}</TranDate>
+						<TranTime>{7}</TranTime>
+						</SYS_HEAD>
+						<APP_HEAD></APP_HEAD>
+							<BODY>
+							    <SysCd>{8}</SysCd>
+							    <TfrIntfCtfPwd>{9}</TfrIntfCtfPwd>
+								<StrtTm>{10}</StrtTm>
+								<EndTm>{11}</EndTm>
+								<AcsCstTmlIp>{12}</AcsCstTmlIp>
+							</BODY>
+						</service>	
+					]]>
+			</modelValue>
+		</msgModel>
+	</service>
+	<service 
+	  serviceId="serviceRole" 
+	  serviceName="获取增量角色信息" 
+	  serviceTitle="获取增量角色信息" 
+	  validClass="com.yzj.seal.ibank.service.concreteService.RoleConcreateValid"
+	 >
+	<serviceAddress host="128.160.22.6" port="9136">
+				<destinationSys>ESB</destinationSys>
+	</serviceAddress>
+	    <msgNote>
+	           <!--  sys_head -->
+				<num name="ServiceCode" realkey="0"><value>服务代码</value></num>
+				<num name="ServiceScene" realkey="1"><value>服务场景 </value></num>
+				<num name="ConsumerId" realkey="2"><value>消费系统编号</value></num>
+				<num name="OrgConsumerId" realkey="3"><value>发起方系统编号</value></num>
+				<num name="ConsumerSeqNo" realkey="4"><value>消费系统流水号</value></num>
+				<num name="OrgConsumerSeqNo" realkey="5"><value>发起方系统流水号</value></num>
+				<num name="TranDate" realkey="6"><value>交易日期</value></num>
+				<num name="TranTime" realkey="7"><value>交易时间</value></num>
+				<!-- app_head -->
+				<!-- body -->
+				<num name="SysCd" realkey="8"><value>系统代码</value></num>
+				<num name="TfrIntfCtfPwd" realkey="9"><value>调用接口认证密码</value></num>
+				<num name="StrtTm" realkey="10"><value>开始时间(2018-05-02 15:13:46.000)</value></num>
+				<num name="EndTm" realkey="11"><value>结束时间(2018-05-30 15:55:35.123)</value></num>
+				<num name="AcsCstTmlIp" realkey="12"><value>访问者IP(128.160.16.167)</value></num>
+		</msgNote>
+		<resParser msgType="xml" parseMethod="parResMsg" />
+		<msgModel>
+			<modelName>roleModel</modelName>
+			<modelValue>
+					<![CDATA[
+						<?xml version="1.0" encoding="UTF-8"?>
+						<service>
+						<SYS_HEAD>
+						<ServiceCode>{0}</ServiceCode>
+						<ServiceScene>{1}</ServiceScene>
+						<ConsumerId>{2}</ConsumerId>
+						<OrgConsumerId>{3}</OrgConsumerId>
+						<ConsumerSeqNo>{4}</ConsumerSeqNo>
+						<OrgConsumerSeqNo>{5}</OrgConsumerSeqNo>
+						<TranDate>{6}</TranDate>
+						<TranTime>{7}</TranTime>
+						</SYS_HEAD>
+						<APP_HEAD></APP_HEAD>
+							<BODY>
+							    <SysCd>{8}</SysCd>
+							    <TfrIntfCtfPwd>{9}</TfrIntfCtfPwd>
+								<StrtTm>{10}</StrtTm>
+								<EndTm>{11}</EndTm>
+								<AcsCstTmlIp>{12}</AcsCstTmlIp>
+							</BODY>
+						</service>	
+					]]>
+			</modelValue>
+		</msgModel>
+	</service>
+	<service 
+	  serviceId="serviceAccLoginCheck" 
+	  serviceName="统一用户管理系统登录验证" 
+	  serviceTitle="统一用户管理系统登录验证" 
+	  validClass="com.yzj.seal.ibank.service.concreteService.AccLoginCheckValid"
+	 >
+	<serviceAddress host="128.160.22.6" port="9136">
+				<destinationSys>ESB</destinationSys>
+	</serviceAddress>
+	    <msgNote>
+	           <!--  sys_head -->
+				<num name="ServiceCode" realkey="0"><value>服务代码</value></num>
+				<num name="ServiceScene" realkey="1"><value>服务场景 </value></num>
+				<num name="ConsumerId" realkey="2"><value>消费系统编号</value></num>
+				<num name="OrgConsumerId" realkey="3"><value>发起方系统编号</value></num>
+				<num name="ConsumerSeqNo" realkey="4"><value>消费系统流水号</value></num>
+				<num name="OrgConsumerSeqNo" realkey="5"><value>发起方系统流水号</value></num>
+				<num name="TranDate" realkey="6"><value>交易日期</value></num>
+				<num name="TranTime" realkey="7"><value>交易时间</value></num>
+				<!-- app_head -->
+				<!-- body -->
+				<num name="UsrNm" realkey="8"><value>用户名</value></num>
+				<num name="Pwd" realkey="9"><value>密码</value></num>
+				<num name="CtfMth" realkey="10"><value>认证方式</value></num>
+				<num name="UseInd" realkey="11"><value>应用标识</value></num>
+				<num name="AcsCstTmlIp" realkey="12"><value>访问者IP(128.160.16.167)</value></num>
+		</msgNote>
+		<resParser msgType="xml" parseMethod="parResMsg" />
+		<msgModel>
+			<modelName>accLoginCheckModel</modelName>
+			<modelValue>
+					<![CDATA[
+						<?xml version="1.0" encoding="UTF-8"?>
+						<service>
+						<SYS_HEAD>
+						<ServiceCode>{0}</ServiceCode>
+						<ServiceScene>{1}</ServiceScene>
+						<ConsumerId>{2}</ConsumerId>
+						<OrgConsumerId>{3}</OrgConsumerId>
+						<ConsumerSeqNo>{4}</ConsumerSeqNo>
+						<OrgConsumerSeqNo>{5}</OrgConsumerSeqNo>
+						<TranDate>{6}</TranDate>
+						<TranTime>{7}</TranTime>
+						</SYS_HEAD>
+						<APP_HEAD></APP_HEAD>
+							<BODY>
+							    <UsrNm>{8}</UsrNm>
+							    <Pwd>{9}</Pwd>
+								<CtfMth>{10}</CtfMth>
+								<UseInd>{11}</UseInd>
+								<AcsCstTmlIp>{12}</AcsCstTmlIp>
+							</BODY>
+						</service>	
+					]]>
+			</modelValue>
+		</msgModel>
+	</service>
+	<service 
+	  serviceId="serviceGetUsers" 
+	  serviceName="获取用户信息" 
+	  serviceTitle="获取用户信息" 
+	  validClass="com.yzj.seal.ibank.service.concreteService.GetUsersValid"
+	 >
+	<serviceAddress host="128.160.22.6" port="9136">
+				<destinationSys>ESB</destinationSys>
+	</serviceAddress>
+	    <msgNote>
+	           <!--  sys_head -->
+				<num name="ServiceCode" realkey="0"><value>服务代码</value></num>
+				<num name="ServiceScene" realkey="1"><value>服务场景 </value></num>
+				<num name="ConsumerId" realkey="2"><value>消费系统编号</value></num>
+				<num name="OrgConsumerId" realkey="3"><value>发起方系统编号</value></num>
+				<num name="ConsumerSeqNo" realkey="4"><value>消费系统流水号</value></num>
+				<num name="OrgConsumerSeqNo" realkey="5"><value>发起方系统流水号</value></num>
+				<num name="TranDate" realkey="6"><value>交易日期</value></num>
+				<num name="TranTime" realkey="7"><value>交易时间</value></num>
+				<!-- app_head -->
+				<!-- body -->
+				<num name="SsoTkId" realkey="8"><value>tockenId</value></num>
+				<num name="AttrNm" realkey="9"><value>属性名</value></num>
+				<num name="UseInd" realkey="10"><value>应用标识</value></num>
+				<num name="AcsCstTmlIp" realkey="11"><value>访问者IP(128.160.16.167)</value></num>
+		</msgNote>
+		<resParser msgType="xml" parseMethod="parResMsg" />
+		<msgModel>
+			<modelName>getUsersModel</modelName>
+			<modelValue>
+					<![CDATA[
+						<?xml version="1.0" encoding="UTF-8"?>
+						<service>
+						<SYS_HEAD>
+						<ServiceCode>{0}</ServiceCode>
+						<ServiceScene>{1}</ServiceScene>
+						<ConsumerId>{2}</ConsumerId>
+						<OrgConsumerId>{3}</OrgConsumerId>
+						<ConsumerSeqNo>{4}</ConsumerSeqNo>
+						<OrgConsumerSeqNo>{5}</OrgConsumerSeqNo>
+						<TranDate>{6}</TranDate>
+						<TranTime>{7}</TranTime>
+						</SYS_HEAD>
+						<APP_HEAD></APP_HEAD>
+							<BODY>
+							    <SsoTkId>{8}</SsoTkId>
+							    <AttrNm>{9}</AttrNm>
+								<UseInd>{10}</UseInd>
+								<AcsCstTmlIp>{11}</AcsCstTmlIp>
+							</BODY>
+						</service>	
+					]]>
+			</modelValue>
+		</msgModel>
+	</service>
+	<service 
+	  serviceId="serviceCheckToken" 
+	  serviceName="验证tocken有效性" 
+	  serviceTitle="验证tocken有效性" 
+	  validClass="com.yzj.seal.ibank.service.concreteService.CheckTokenValid"
+	 >
+	<serviceAddress host="128.160.22.6" port="9136">
+				<destinationSys>ESB</destinationSys>
+	</serviceAddress>
+	    <msgNote>
+	           <!--  sys_head -->
+				<num name="ServiceCode" realkey="0"><value>服务代码</value></num>
+				<num name="ServiceScene" realkey="1"><value>服务场景 </value></num>
+				<num name="ConsumerId" realkey="2"><value>消费系统编号</value></num>
+				<num name="OrgConsumerId" realkey="3"><value>发起方系统编号</value></num>
+				<num name="ConsumerSeqNo" realkey="4"><value>消费系统流水号</value></num>
+				<num name="OrgConsumerSeqNo" realkey="5"><value>发起方系统流水号</value></num>
+				<num name="TranDate" realkey="6"><value>交易日期</value></num>
+				<num name="TranTime" realkey="7"><value>交易时间</value></num>
+				<!-- app_head -->
+				<!-- body -->
+				<num name="SsoTkId" realkey="8"><value>tockenId</value></num>
+				<num name="UseInd" realkey="9"><value>应用标识</value></num>
+				<num name="AcsCstTmlIp" realkey="10"><value>访问者IP(128.160.16.167)</value></num>
+		</msgNote>
+		<resParser msgType="xml" parseMethod="parResMsg" />
+		<msgModel>
+			<modelName>getUsersModel</modelName>
+			<modelValue>
+					<![CDATA[
+						<?xml version="1.0" encoding="UTF-8"?>
+						<service>
+						<SYS_HEAD>
+						<ServiceCode>{0}</ServiceCode>
+						<ServiceScene>{1}</ServiceScene>
+						<ConsumerId>{2}</ConsumerId>
+						<OrgConsumerId>{3}</OrgConsumerId>
+						<ConsumerSeqNo>{4}</ConsumerSeqNo>
+						<OrgConsumerSeqNo>{5}</OrgConsumerSeqNo>
+						<TranDate>{6}</TranDate>
+						<TranTime>{7}</TranTime>
+						</SYS_HEAD>
+						<APP_HEAD></APP_HEAD>
+							<BODY>
+							    <SsoTkId>{8}</SsoTkId>
+								<UseInd>{9}</UseInd>
+								<AcsCstTmlIp>{10}</AcsCstTmlIp>
+							</BODY>
+						</service>	
+					]]>
+			</modelValue>
+		</msgModel>
+	</service>
+	<!-- 账户信息查询 -->
+	<service 
+	  serviceId="serviceGetAccount" 
+	  serviceName="通过核心账户信息查询" 
+	  serviceTitle="通过核心账户信息查询" 
+	  validClass="com.yzj.seal.ibank.service.concreteService.AccountQueryValid"
+	 >
+	<serviceAddress host="128.160.22.6" port="9136">
+				<destinationSys>CORE</destinationSys>
+	</serviceAddress>
+	    <msgNote>
+	           <!--  sys_head -->
+				<num name="ServiceCode" realkey="0"><value>服务代码</value></num>
+				<num name="ServiceScene" realkey="1"><value>服务场景 </value></num>
+				<num name="ConsumerId" realkey="2"><value>消费系统编号</value></num>
+				<num name="OrgConsumerId" realkey="3"><value>发起方系统编号</value></num>
+				<num name="ConsumerSeqNo" realkey="4"><value>消费系统流水号</value></num>
+				<num name="OrgConsumerSeqNo" realkey="5"><value>发起方系统流水号</value></num>
+				<num name="TranDate" realkey="6"><value>交易日期</value></num>
+				<num name="TranTime" realkey="7"><value>交易时间</value></num>
+				<!-- app_head -->
+				<!-- body -->
+				<num name="AcctBlngMudTp" realkey="8"><value>账户所属模块(DP-存款)</value></num>
+				<num name="CstAcctNo" realkey="9"><value>客户账号</value></num>
+				<num name="CcyNo" realkey="10"><value>货币代号</value></num>
+				<num name="CshRmtInd" realkey="11"><value>钞汇标志</value></num>
+				<num name="SubAcctSrlNo" realkey="12"><value>子账户序号</value></num>
+				<num name="Enqr1Cd" realkey="13"><value>查询代码1</value></num>
+				<num name="EnqrRng" realkey="14"><value>查询范围</value></num>
+				<num name="Pls1Inf" realkey="15"><value>附加信息1</value></num>
+		</msgNote>
+		<resParser msgType="xml" parseMethod="parResMsg" />
+		<msgModel>
+			<modelName>getAccountModel</modelName>
+			<modelValue>
+					<![CDATA[
+						<?xml version="1.0" encoding="UTF-8"?>
+						<service>
+						<SYS_HEAD>
+						<ServiceCode>{0}</ServiceCode>
+						<ServiceScene>{1}</ServiceScene>
+						<ConsumerId>{2}</ConsumerId>
+						<OrgConsumerId>{3}</OrgConsumerId>
+						<ConsumerSeqNo>{4}</ConsumerSeqNo>
+						<OrgConsumerSeqNo>{5}</OrgConsumerSeqNo>
+						<TranDate>{6}</TranDate>
+						<TranTime>{7}</TranTime>
+						</SYS_HEAD>
+						<APP_HEAD></APP_HEAD>
+							<BODY>
+								 <AcctBlngMudTp>{8}</AcctBlngMudTp>
+								 <CstAcctNo>{9}</CstAcctNo>
+								 <CcyNo>{10}</CcyNo>
+								 <CshRmtInd>{11}</CshRmtInd>
+								 <SubAcctSrlNo>{12}</SubAcctSrlNo>
+								 <Enqr1Cd>{13}</Enqr1Cd>
+								 <EnqrRng>{14}</EnqrRng>
+								 <Pls1Inf>{15}</Pls1Inf>
+							</BODY>
+						</service>	
+					]]>
+			</modelValue>
+		</msgModel>
+	</service>
+	
+	<!-- 印鉴关联查询 -->
+	<service 
+	  serviceId="serviceSealContract" 
+	  serviceName="通过核心印鉴关联查询" 
+	  serviceTitle="通过核心印鉴关联查询" 
+	  validClass="com.yzj.seal.ibank.service.concreteService.SealContractValid"
+	 >
+	<serviceAddress host="128.160.22.6" port="9136">
+				<destinationSys>CORE</destinationSys>
+	</serviceAddress>
+	    <msgNote>
+	           <!--  sys_head -->
+				<num name="ServiceCode" realkey="0"><value>服务代码</value></num>
+				<num name="ServiceScene" realkey="1"><value>服务场景 </value></num>
+				<num name="ConsumerId" realkey="2"><value>消费系统编号</value></num>
+				<num name="OrgConsumerId" realkey="3"><value>发起方系统编号</value></num>
+				<num name="ConsumerSeqNo" realkey="4"><value>消费系统流水号</value></num>
+				<num name="OrgConsumerSeqNo" realkey="5"><value>发起方系统流水号</value></num>
+				<num name="TranDate" realkey="6"><value>交易日期</value></num>
+				<num name="TranTime" realkey="7"><value>交易时间</value></num>
+				<!-- app_head -->
+				<!-- body -->
+				<num name="RlvncCstAcctNo" realkey="8"><value>关联客户账号</value></num>
+				<num name="SubAcctSrlNo" realkey="9"><value>子户序号</value></num>
+				<num name="ByRlvncCstAcctNo" realkey="10"><value>被关联客户账号</value></num>
+				<num name="SubAcctSrl2No" realkey="11"><value>子户序号2</value></num>
+				<num name="BckFldInf" realkey="12"><value>备用字段</value></num>
+		</msgNote>
+		<resParser msgType="xml" parseMethod="parResMsg" />
+		<msgModel>
+			<modelName>getAccountModel</modelName>
+			<modelValue>
+					<![CDATA[
+						<?xml version="1.0" encoding="UTF-8"?>
+						<service>
+						<SYS_HEAD>
+						<ServiceCode>{0}</ServiceCode>
+						<ServiceScene>{1}</ServiceScene>
+						<ConsumerId>{2}</ConsumerId>
+						<OrgConsumerId>{3}</OrgConsumerId>
+						<ConsumerSeqNo>{4}</ConsumerSeqNo>
+						<OrgConsumerSeqNo>{5}</OrgConsumerSeqNo>
+						<TranDate>{6}</TranDate>
+						<TranTime>{7}</TranTime>
+						</SYS_HEAD>
+						<APP_HEAD></APP_HEAD>
+							<BODY>
+								 <RlvncCstAcctNo>{8}</RlvncCstAcctNo>
+								 <SubAcctSrlNo>{9}</SubAcctSrlNo>
+								 <ByRlvncCstAcctNo>{10}</ByRlvncCstAcctNo>
+								 <SubAcctSrl2No>{11}</SubAcctSrl2No>
+								 <BckFldInf>{12}</BckFldInf>
+							</BODY>
+						</service>	
+					]]>
+			</modelValue>
+		</msgModel>
+	</service>
+	
+</services>

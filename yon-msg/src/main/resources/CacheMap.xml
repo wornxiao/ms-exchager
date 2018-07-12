@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Maps>
+	<senderMap>
+		  <!--  对接其他系统的通信类 -->
+		 <kev-val key="ESB" val="com.yzj.seal.ibank.common.destination.SendToESBSendHandler"  note="对接ESB的发送类"/>
+		 <kev-val key="CORE" val="com.yzj.seal.ibank.common.destination.SendToCoreSendHandler" note="对接核心的发送类"/>
+	</senderMap>
+	<recivMap>
+	      <!-- 对接其他系统的报文解析类 -->
+		 <kev-val key="json" val="com.yjz.seal.ibank.resPaser.JsonResMsgPaser" note="json响应解析类" />
+		 <kev-val key="xml" val="com.yjz.seal.ibank.resPaser.XmlResMsgPaser" note="xml响应解析类" />
+	</recivMap>
+	<redisMap>
+		 <kev-val key="isredis" val="false" note="是否开启redis的缓存" />
+	</redisMap>
+</Maps>
