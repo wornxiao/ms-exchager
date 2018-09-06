@@ -8,7 +8,7 @@ import org.apache.log4j.Logger;
 
 public class Worn_xiaoConstant {
 
-	Logger logger=Logger.getLogger(Worn_xiaoConstant.class);
+	Logger logger = Logger.getLogger(Worn_xiaoConstant.class);
 	/**
 	 * 系统sid的长度
 	 */
@@ -33,16 +33,14 @@ public class Worn_xiaoConstant {
 	 */
 	public static final Worn_xiaoConstant GETUSER = new Worn_xiaoConstant("12002000042");
 	/**
-	 * 核心系统服务平台编码集
-	 * 账户查询接口 07
+	 * 核心系统服务平台编码集 账户查询接口 07
 	 */
-	public static final Worn_xiaoConstant GETACC=new Worn_xiaoConstant("12003000004");
-	
+	public static final Worn_xiaoConstant GETACC = new Worn_xiaoConstant("12003000004");
+
 	/***
-	 * 核心系统印鉴关联服务 
-	 * 01核心系统账户印鉴关联检查
+	 * 核心系统印鉴关联服务 01核心系统账户印鉴关联检查
 	 */
-	public static final Worn_xiaoConstant ACCCON=new Worn_xiaoConstant("12002000055");
+	public static final Worn_xiaoConstant ACCCON = new Worn_xiaoConstant("12002000055");
 
 	/**
 	 * 对接统一用户管理平台的接口场景编码集合 01 获取用户信息 02 验证token有效性 03 增量账户 04 增量机构 05 增量角色
@@ -68,14 +66,12 @@ public class Worn_xiaoConstant {
 	 * 对接统一用户管理平台的接口场景编码集合 01 获取用户信息 02 验证token有效性 03 增量账户 04 增量机构 05 增量角色
 	 */
 	public static final Worn_xiaoConstant SCENEFIVE = new Worn_xiaoConstant("05");
-	
+
 	/**
-	 * 对接核心系统的账户查询服务 
+	 * 对接核心系统的账户查询服务
 	 */
 	public static final Worn_xiaoConstant SCENESIX = new Worn_xiaoConstant("07");
 
-	
-	
 	/**
 	 * 电子验印系统编码 105020
 	 */
@@ -124,18 +120,17 @@ public class Worn_xiaoConstant {
 	/**
 	 * 获取账户信息
 	 */
-	public static final Worn_xiaoConstant GETACCN=new Worn_xiaoConstant("serviceGetAccount");
+	public static final Worn_xiaoConstant GETACCN = new Worn_xiaoConstant("serviceGetAccount");
 
 	/**
 	 * 印鉴关联接口
 	 */
-	public static final Worn_xiaoConstant SEALCONTRACT=new Worn_xiaoConstant("serviceSealContract");
+	public static final Worn_xiaoConstant SEALCONTRACT = new Worn_xiaoConstant("serviceSealContract");
 	/**
 	 * 校验tocken
 	 */
 	public static final Worn_xiaoConstant CHECKTOCKEN = new Worn_xiaoConstant("serviceCheckToken");
 
-	
 	private String code;
 
 	/**
@@ -150,7 +145,6 @@ public class Worn_xiaoConstant {
 	 * 缓存控制标识
 	 */
 	public static Map<String, Object> redisMap = new ConcurrentHashMap<String, Object>();
-	
 
 	/**
 	 * 统一用户管理 账户获取动态时间参数类型码
@@ -197,8 +191,6 @@ public class Worn_xiaoConstant {
 	public static final Worn_xiaoConstant TOCKENID = new Worn_xiaoConstant("SsoTkId");
 
 	public static final Worn_xiaoConstant StaticMap = new Worn_xiaoConstant("CacheMap.xml");
-	
-	
 
 	public Worn_xiaoConstant(String param) {
 		this.code = param;
@@ -208,9 +200,9 @@ public class Worn_xiaoConstant {
 		senderMap = MsgTranslateUtils.getInstance().getCacheMap("senderMap");
 		recivMap = MsgTranslateUtils.getInstance().getCacheMap("recivMap");
 		redisMap = MsgTranslateUtils.getInstance().getCacheMap("redisMap");
-		logger.info("senderMap "+senderMap.toString());
-		logger.info("recivMap  "+recivMap.toString());
-		logger.info("redisMap  "+redisMap.toString());
+		logger.info("senderMap " + senderMap.toString());
+		logger.info("recivMap  " + recivMap.toString());
+		logger.info("redisMap  " + redisMap.toString());
 	}
 
 	public String getCode() {

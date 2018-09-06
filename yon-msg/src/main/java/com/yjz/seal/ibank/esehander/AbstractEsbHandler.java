@@ -13,7 +13,6 @@ import org.apache.log4j.Logger;
 import com.yzj.seal.ibank.esbhEntity.Service;
 import com.yzj.seal.ibank.esbhEntity.Services;
 
-
 /**
  * 交给spring容器进行管理
  */

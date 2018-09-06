@@ -1,6 +1,5 @@
 package com.yjz.seal.ibank.esehander;
 
-
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -58,23 +57,22 @@ public abstract class AbstractEsbSendMethod implements IEebServiceMethod {
 		String msg = MessageFormat.format(modelValue, array);
 		int length = msg.trim().getBytes().length;
 		String header = createMsg(length);
-		String realmsg=header+msg.trim();
+		String realmsg = header + msg.trim();
 		log.info("格式化 后的报文  " + realmsg);
 		if (realvalues.size() > 0)
 			return realmsg;
 		return null;
 	}
-	
-	
-	private String createMsg(int length){
-	   String s=""+length;
-	   int len=Integer.valueOf(Worn_xiaoConstant.MsgHeader.getCode())-s.length();
-	   StringBuffer buffer=new StringBuffer();
-	   for(int i=0;i<len;i++){
-		   buffer.append("0");
-	   }
-	   buffer.append(s);
-	   return buffer.toString();
+
+	private String createMsg(int length) {
+		String s = "" + length;
+		int len = Integer.valueOf(Worn_xiaoConstant.MsgHeader.getCode()) - s.length();
+		StringBuffer buffer = new StringBuffer();
+		for (int i = 0; i < len; i++) {
+			buffer.append("0");
+		}
+		buffer.append(s);
+		return buffer.toString();
 	}
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
@@ -88,13 +86,13 @@ public abstract class AbstractEsbSendMethod implements IEebServiceMethod {
 
 	private boolean commonValidate(Service service, Object obj) {
 		String validClass = service.getValidClass();
-		if(StringUtils.isEmpty(validClass)){
+		if (StringUtils.isEmpty(validClass)) {
 			log.error("Service.xml 中 validClass 报文校验类是否配置");
 			return false;
 		}
 		ServiceAddress serviceAddress = service.getServiceAddress();
 		String destinationSys = serviceAddress.getDestinationSys();
-		if(StringUtils.isEmpty(destinationSys)){
+		if (StringUtils.isEmpty(destinationSys)) {
 			log.error("Service.xml 中 destinationSys 报文校验类是否配置");
 			return false;
 		}
@@ -111,7 +109,7 @@ public abstract class AbstractEsbSendMethod implements IEebServiceMethod {
 				return false;
 			}
 		}
-		if(obj instanceof List){
+		if (obj instanceof List) {
 			List<?> li = (List<?>) obj;
 			if (li.size() != num.size()) {
 				log.error("Service.xml配置文件中的num元素的数量 与传入的参数数量不一致");
